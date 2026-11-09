@@ -1,0 +1,9 @@
+# Fuentes del kernel
+/linux-6.18.60/
+
+# Compilaciones
+/build-default/
+/build-tiny/
+
+# Archivo generado del initramfs
+/initramfs.cpio.gz
