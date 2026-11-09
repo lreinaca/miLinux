@@ -1,0 +1,24 @@
+# Parte 1 - Kernel y arranque mínimo
+
+## Actividad 1. Explorar la configuración del kernel
+
+### P1
+En General setup → Local version aparece el valor `-lorena`.
+Este valor se había configurado anteriormente mediante `LOCALVERSION`.
+
+### P2
+En `Processor type and features`, el valor configurado para `Maximum number of CPUs` es **64**. Esto significa que esta configuración del kernel permite manejar hasta 64 CPU.
+
+### P3
+En `File systems`, el sistema de archivos ext4 aparece marcado con `<*>`, lo que significa que su soporte está incluido directamente en el kernel.
+
+Si ext4 estuviera configurado como módulo `<M>` y el disco raíz utilizara ext4, el kernel tendría que cargar ese módulo antes de poder montar el sistema de archivos raíz. Para que eso funcione, el módulo tendría que estar disponible en el `initramfs`; de lo contrario, el sistema no podría montar la raíz y el arranque fallaría.
+
+
+### P4
+`BLK_DEV_INITRD` se encuentra en `General setup`, en la opción `Initial RAM filesystem and RAM disk (initramfs/initrd) support`.
+
+Su valor es `y`, por lo que está habilitado.
+
+Esta opción permite que el kernel utilice un `initramfs` o `initrd` durante el arranque. El proyecto la necesita porque más adelante se construirá un sistema de archivos inicial para iniciar el sistema mínimo.
+
