@@ -124,3 +124,65 @@ No. Un kernel por sí solo no constituye un sistema operativo usable.
 En la prueba se observó que el kernel pudo iniciar, reconocer el hardware y mostrar mensajes de arranque, pero después se detuvo porque no encontró un sistema de archivos raíz ni programas de usuario para continuar.
 
 Por eso terminó en un `Kernel panic`. Esto muestra que el kernel necesita trabajar junto con otros componentes, como un sistema de archivos y un proceso inicial (`init`), para que el sistema pueda seguir funcionando y el usuario pueda ejecutar programas.
+
+## Actividad 4. Escribir el primer proceso del sistema
+### P9
+
+Mi programa tiene:
+
+```text
+PID: 1
+PPID: 0
+```
+
+El `PID 1` indica que `init` es el primer proceso de usuario que inicia el sistema.
+
+El `PPID` es `0` porque este proceso no fue creado por otro proceso de usuario. En este caso, el kernel ejecutó directamente `/init` durante el arranque, por eso no tiene un proceso padre normal y aparece con `PPID 0`.
+
+### P10
+
+El programa se compiló con la opción `-static` para que todas las bibliotecas necesarias quedaran incluidas dentro del ejecutable `init`.
+
+Esto es necesario porque el `initramfs` que construimos es muy básico y no contiene las bibliotecas del sistema que normalmente necesita un programa para ejecutarse.
+
+Si se compilara sin `-static`, el ejecutable dependería de bibliotecas externas. Como esas bibliotecas no estarían disponibles dentro del `initramfs`, el kernel no podría ejecutar correctamente `/init`.
+
+### P11
+
+En el arranque se usaron los parámetros:
+
+```text
+console=ttyS0 quiet hola EQUIPO=LORENA
+```
+
+El parámetro `hola` llegó al programa `init` como argumento:
+
+```text
+argv[1] = hola
+```
+
+El parámetro `EQUIPO=LORENA` llegó como variable de entorno.
+
+Los parámetros `console=ttyS0` y `quiet` fueron reconocidos y utilizados directamente por el kernel, por eso no llegaron al programa `init`.
+
+Inicialmente se realizó la prueba con `quiet`, pero al revisar `logs/arranque-parametros.log` no apareció la línea `Unknown kernel command line parameters`, porque `quiet` reduce los mensajes mostrados por el kernel durante el arranque.
+
+Por esta razón fue necesario repetir la prueba sin `quiet`, usando:
+
+```text
+console=ttyS0 hola EQUIPO=LORENA
+```
+
+En el nuevo log apareció:
+
+```text
+Unknown kernel command line parameters "hola EQUIPO=LORENA", will be passed to user space.
+```
+
+Esto confirma que el kernel consume los parámetros que reconoce y pasa los demás al espacio de usuario. Los parámetros sin `=` llegan como argumentos y los que tienen formato `NOMBRE=valor` llegan como variables de entorno.
+
+### P12
+
+Al comparar los dos arranques, con el parámetro `quiet` se mostraron muchos menos mensajes del kernel. Sin `quiet`, el arranque mostró más información y fue posible ver mensajes adicionales, como la línea `Unknown kernel command line parameters`.
+
+El parámetro `quiet` fue consumido por el propio kernel, ya que modifica la cantidad de mensajes que este muestra durante el arranque. Por eso `quiet` no llegó como argumento ni como variable de entorno al programa `init`.
