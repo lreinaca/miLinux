@@ -186,3 +186,58 @@ Esto confirma que el kernel consume los parámetros que reconoce y pasa los dem�
 Al comparar los dos arranques, con el parámetro `quiet` se mostraron muchos menos mensajes del kernel. Sin `quiet`, el arranque mostró más información y fue posible ver mensajes adicionales, como la línea `Unknown kernel command line parameters`.
 
 El parámetro `quiet` fue consumido por el propio kernel, ya que modifica la cantidad de mensajes que este muestra durante el arranque. Por eso `quiet` no llegó como argumento ni como variable de entorno al programa `init`.
+
+
+Actividad 5. Matar a PID 1 y comparar los dos kernels
+
+| Medida                                      | `defconfig` | `tinyconfig` |
+| ------------------------------------------- | ----------- | ------------ |
+| Tamaño de `bzImage` (MB)                    | 14 MB       | ≈ 0,98 MB    |
+| Opciones dentro del kernel (`=y`)           | 1635        | 527          |
+| Tiempo de compilación (`real`, min)         | 9,16 min    | 0,038 min    |
+| Tiempo de arranque hasta PID 1 (s, mediana) | 12,431 s    | 3,684 s      |
+| Memoria disponible (línea `Memory:`, KB)    | 212712 KB   | 246936 KB    |
+
+### P13
+
+En la Actividad 3 el `Kernel panic` ocurrió porque el kernel no encontró un sistema de archivos raíz que pudiera montar:
+
+```text
+VFS: Unable to mount root fs on unknown-block(0,0)
+```
+
+En ese caso el kernel sí arrancó, pero no tenía un disco ni un `initramfs` desde donde continuar el proceso de inicio.
+
+En la Actividad 5.1 el sistema sí tenía `initramfs` y pudo ejecutar `/init` como PID 1, pero el programa terminó al recibir el parámetro `salir`. El mensaje fue:
+
+```text
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000
+```
+
+La diferencia es que en la Actividad 3 nunca se llegó a ejecutar un proceso de usuario, mientras que en la Actividad 5 sí se creó el PID 1, pero este terminó.
+
+El kernel no puede continuar sin PID 1 porque este es el proceso inicial del espacio de usuario y sirve como base para la ejecución de los demás procesos del sistema.
+
+### P14
+
+Las diferencias entre `defconfig` y `tinyconfig` se deben a que `defconfig` incluye muchas más opciones y funcionalidades dentro del kernel, mientras que `tinyconfig` contiene solo lo mínimo necesario para arrancar y ejecutar el programa `init`.
+
+Esto se refleja en los resultados obtenidos. El kernel `defconfig` tiene 1635 opciones activadas y un `bzImage` de aproximadamente 14 MB, mientras que `tinyconfig` tiene 527 opciones activadas y un tamaño cercano a 0,98 MB.
+
+También se observó que `tinyconfig` compiló y arrancó más rápido. Su mediana de arranque fue de 3,684 s, frente a 12,431 s de `defconfig`. Además, dejó más memoria disponible: 246936 KB frente a 212712 KB.
+
+En general, al incluir menos componentes, `tinyconfig` genera un kernel más pequeño y ligero, pero también con muchas menos capacidades que `defconfig`.
+
+### P15
+
+El kernel `tinyconfig` fue configurado únicamente con lo mínimo necesario para esta primera parte del proyecto, por lo que no incluye varias capacidades que serán necesarias más adelante.
+
+Tres ejemplos son:
+
+- Soporte para dispositivos de almacenamiento o discos.
+- Soporte para el sistema de archivos `ext4`.
+- Soporte de red y sus controladores.
+
+Por esta razón el proyecto continúa con el kernel `defconfig`, ya que incluye una configuración mucho más completa y adecuada para las siguientes partes.
+
+
