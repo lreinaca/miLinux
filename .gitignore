@@ -7,3 +7,9 @@
 
 # Archivo generado del initramfs
 /initramfs.cpio.gz
+
+/busybox-1.37.0/
+/busybox-1.37.0.tar.bz2
+/rootfs/*
+!/rootfs/init
+/rootfs.cpio.gz

@@ -1,0 +1,46 @@
+#!/bin/sh
+# Indica que este script debe ejecutarse usando la shell de BusyBox.
+
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin
+# Define las carpetas donde la shell buscará los comandos.
+
+mount -t proc proc /proc
+# Monta /proc para poder consultar procesos y estado del sistema.
+
+mount -t sysfs sysfs /sys
+# Monta /sys para consultar dispositivos y controladores del kernel.
+
+mount -t devtmpfs devtmpfs /dev
+# Monta /dev para que el kernel cree los archivos de los dispositivos detectados.
+
+hostname milinux-Lorena
+# Asigna un nombre al sistema.
+
+echo
+# Imprime una línea en blanco.
+
+echo "=== Mi Linux Lorena: espacio de usuario con BusyBox ==="
+# Muestra un mensaje de identificación al iniciar.
+
+echo "Kernel: $(uname -r)   Procesos: $(ls -d /proc/[0-9]* | wc -l)"
+# Muestra la versión del kernel y cuenta los procesos visibles en /proc.
+
+echo
+# Imprime otra línea en blanco.
+
+exec setsid cttyhack sh
+# Reemplaza el proceso init por una shell interactiva y conserva el PID 1.#!/bin/sh
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+mount -t proc     proc     /proc
+mount -t sysfs    sysfs    /sys
+mount -t devtmpfs devtmpfs /dev
+
+hostname milinux-Lorena
+
+echo
+echo "=== Mi Linux Lorena: espacio de usuario con BusyBox ==="
+echo "Kernel: $(uname -r)   Procesos: $(ls -d /proc/[0-9]* | wc -l)"
+echo
+
+exec setsid cttyhack sh

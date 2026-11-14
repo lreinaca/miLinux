@@ -1,0 +1,1082 @@
+scripts/kconfig/conf -s Config.in
+#
+# using defaults found in .config
+#
+  SPLIT   include/autoconf.h -> include/config/*
+  GEN     include/bbconfigopts.h
+  GEN     include/common_bufsiz.h
+  GEN     include/embedded_scripts.h
+  HOSTCC  applets/usage
+  HOSTCC  applets/applet_tables
+applets/usage.c: In function ‘main’:
+applets/usage.c:52:17: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   52 |                 write(STDOUT_FILENO, usage_array[i].usage, strlen(usage_array[i].usage) + 1);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  GEN     include/usage_compressed.h
+  GEN     include/applet_tables.h include/NUM_APPLETS.h
+  GEN     include/applet_tables.h include/NUM_APPLETS.h
+  HOSTCC  applets/usage_pod
+  CC      applets/applets.o
+  LD      applets/built-in.o
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+  DOC     busybox.1
+  DOC     BusyBox.html
+  LD      archival/built-in.o
+  CC      archival/bbunzip.o
+  CC      archival/bzip2.o
+  LD      archival/libarchive/built-in.o
+  CC      archival/libarchive/common.o
+  LD      console-tools/built-in.o
+  CC      console-tools/chvt.o
+  CC      archival/libarchive/data_align.o
+  CC      archival/chksum_and_xwrite_tar_header.o
+  CC      console-tools/clear.o
+  CC      archival/libarchive/data_extract_all.o
+archival/libarchive/data_extract_all.c: In function ‘data_extract_all’:
+archival/libarchive/data_extract_all.c:235:25: warning: ignoring return value of ‘chown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  235 |                         chown(dst_name, uid, gid);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+  LD      coreutils/built-in.o
+  CC      console-tools/deallocvt.o
+  CC      coreutils/basename.o
+  CC      archival/libarchive/data_extract_to_command.o
+  CC      console-tools/dumpkmap.o
+  CC      coreutils/cat.o
+console-tools/dumpkmap.c: In function ‘dumpkmap_main’:
+console-tools/dumpkmap.c:67:9: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   67 |         write(STDOUT_FILENO, flags, 7 + MAX_NR_KEYMAPS);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+console-tools/dumpkmap.c:79:41: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   79 |                                         write(STDOUT_FILENO, &ke.kb_value, 2);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      archival/libarchive/data_extract_to_stdout.o
+  CC      console-tools/fgconsole.o
+  CC      archival/cpio.o
+  CC      coreutils/chgrp.o
+  CC      archival/libarchive/data_skip.o
+  CC      coreutils/chmod.o
+  CC      console-tools/kbd_mode.o
+  CC      archival/libarchive/decompress_bunzip2.o
+  CC      archival/dpkg.o
+  CC      coreutils/chown.o
+  CC      coreutils/chroot.o
+  CC      console-tools/loadfont.o
+  CC      archival/libarchive/decompress_gunzip.o
+console-tools/loadfont.c: In function ‘setfont_main’:
+console-tools/loadfont.c:445:25: warning: ignoring return value of ‘chdir’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  445 |                         chdir(CONFIG_DEFAULT_SETFONT_DIR "/consolefonts");
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+console-tools/loadfont.c:463:33: warning: ignoring return value of ‘chdir’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  463 |                                 chdir(CONFIG_DEFAULT_SETFONT_DIR "/consoletrans");
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      console-tools/loadkmap.o
+  CC      coreutils/cksum.o
+  CC      console-tools/openvt.o
+  CC      archival/dpkg_deb.o
+  CC      coreutils/comm.o
+  CC      archival/libarchive/decompress_unlzma.o
+  CC      archival/gzip.o
+  CC      console-tools/reset.o
+  CC      coreutils/cp.o
+  CC      archival/libarchive/decompress_unxz.o
+  CC      console-tools/resize.o
+console-tools/resize.c: In function ‘resize_main’:
+console-tools/resize.c:100:9: warning: ignoring return value of ‘scanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  100 |         scanf(ESC"[%hu;%huR", &w.ws_row, &w.ws_col);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      coreutils/cut.o
+  CC      console-tools/setconsole.o
+  CC      coreutils/date.o
+  CC      archival/lzop.o
+  CC      console-tools/setkeycodes.o
+  CC      coreutils/dd.o
+  CC      archival/libarchive/filter_accept_all.o
+  CC      console-tools/setlogcons.o
+  CC      archival/libarchive/filter_accept_list.o
+  CC      console-tools/showkey.o
+  CC      archival/rpm.o
+  CC      archival/libarchive/filter_accept_list_reassign.o
+  CC      coreutils/df.o
+archival/rpm.c: In function ‘fileaction_setowngrp’:
+archival/rpm.c:250:9: warning: ignoring return value of ‘chown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  250 |         chown(filename, uid, gid);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+  AR      console-tools/lib.a
+  CC      archival/tar.o
+  CC      archival/libarchive/filter_accept_reject_list.o
+  CC      archival/libarchive/find_list_entry.o
+  CC      coreutils/dirname.o
+  CC      archival/unzip.o
+  CC      archival/libarchive/get_header_ar.o
+  CC      coreutils/dos2unix.o
+  CC      archival/libarchive/get_header_cpio.o
+  LD      coreutils/libcoreutils/built-in.o
+coreutils/dos2unix.c: In function ‘convert’:
+coreutils/dos2unix.c:83:17: warning: ignoring return value of ‘fchown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   83 |                 fchown(fd, st.st_uid, st.st_gid);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      coreutils/libcoreutils/cp_mv_stat.o
+  CC      coreutils/du.o
+  AR      archival/lib.a
+  CC      archival/libarchive/get_header_tar.o
+  LD      debianutils/built-in.o
+  CC      coreutils/libcoreutils/getopt_mk_fifo_nod.o
+  CC      debianutils/pipe_progress.o
+  AR      coreutils/libcoreutils/lib.a
+  CC      coreutils/echo.o
+  CC      debianutils/run_parts.o
+  CC      coreutils/env.o
+  CC      archival/libarchive/get_header_tar_bz2.o
+  CC      debianutils/start_stop_daemon.o
+  LD      klibc-utils/built-in.o
+  CC      klibc-utils/resume.o
+  CC      coreutils/expand.o
+klibc-utils/resume.c: In function ‘name_to_dev_t’:
+klibc-utils/resume.c:45:22: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   45 |                 cptr = strchr(devname, ':');
+      |                      ^
+  CC      archival/libarchive/get_header_tar_gz.o
+  AR      klibc-utils/lib.a
+  CC      debianutils/which.o
+  LD      e2fsprogs/built-in.o
+  CC      coreutils/expr.o
+  CC      e2fsprogs/chattr.o
+  CC      archival/libarchive/get_header_tar_lzma.o
+  AR      debianutils/lib.a
+  CC      e2fsprogs/e2fs_lib.o
+  CC      archival/libarchive/get_header_tar_xz.o
+  CC      coreutils/factor.o
+  LD      editors/built-in.o
+  CC      editors/awk.o
+  CC      archival/libarchive/header_list.o
+  CC      e2fsprogs/fsck.o
+  CC      coreutils/false.o
+  CC      archival/libarchive/header_skip.o
+editors/awk.c: In function ‘exec_builtin’:
+editors/awk.c:2850:43: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 2850 |                                 char *s = strstr(as[0], as[1]);
+      |                                           ^~~~~~
+  CC      coreutils/fold.o
+  CC      archival/libarchive/header_verbose_list.o
+  CC      e2fsprogs/lsattr.o
+  CC      coreutils/head.o
+  CC      archival/libarchive/init_handle.o
+  AR      e2fsprogs/lib.a
+  CC      editors/cmp.o
+  CC      coreutils/hostid.o
+  CC      archival/libarchive/lzo1x_1.o
+  LD      findutils/built-in.o
+  CC      findutils/find.o
+  CC      coreutils/id.o
+  CC      coreutils/install.o
+  CC      archival/libarchive/lzo1x_1o.o
+  CC      editors/diff.o
+  CC      coreutils/link.o
+  CC      findutils/grep.o
+  CC      archival/libarchive/lzo1x_d.o
+  CC      coreutils/ln.o
+  CC      archival/libarchive/open_transformer.o
+  CC      coreutils/logname.o
+  CC      findutils/xargs.o
+  CC      coreutils/ls.o
+  CC      archival/libarchive/seek_by_jump.o
+  CC      editors/ed.o
+editors/ed.c: In function ‘printLines’:
+editors/ed.c:545:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  545 |                         write(STDOUT_FILENO, lp->data, lp->len);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      archival/libarchive/seek_by_read.o
+  AR      findutils/lib.a
+  LD      init/built-in.o
+  CC      init/bootchartd.o
+  CC      coreutils/md5_sha1_sum.o
+  CC      archival/libarchive/unpack_ar_archive.o
+  CC      editors/patch.o
+init/bootchartd.c: In function ‘finalize’:
+init/bootchartd.c:318:9: warning: ignoring return value of ‘system’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  318 |         system(xasprintf("tar -zcf /var/log/bootlog.tgz header %s *.log", process_accounting ? "kernel_pacct" : ""));
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      coreutils/mkdir.o
+  CC      archival/libarchive/unsafe_prefix.o
+  CC      init/halt.o
+archival/libarchive/unsafe_prefix.c: In function ‘strip_unsafe_prefix’:
+archival/libarchive/unsafe_prefix.c:21:21: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   21 |                 cp2 = strstr(cp, "/../");
+      |                     ^
+  CC      editors/sed.o
+  CC      coreutils/mkfifo.o
+  CC      archival/libarchive/unsafe_symlink_target.o
+editors/sed.c: In function ‘sed_main’:
+editors/sed.c:1648:25: warning: ignoring return value of ‘fchown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+ 1648 |                         fchown(nonstdoutfd, statbuf.st_uid, statbuf.st_gid);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      init/init.o
+  AR      archival/libarchive/lib.a
+  CC      coreutils/mknod.o
+  LD      libbb/built-in.o
+  CC      libbb/alloc_affinity.o
+  CC      coreutils/mktemp.o
+  CC      coreutils/mv.o
+  CC      editors/vi.o
+  CC      libbb/appletlib.o
+  AR      init/lib.a
+editors/vi.c: In function ‘file_write’:
+editors/vi.c:2374:9: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+ 2374 |         ftruncate(fd, charcnt);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+  CC      coreutils/nice.o
+  CC      libbb/ask_confirmation.o
+libbb/appletlib.c: In function ‘check_suid’:
+libbb/appletlib.c:637:17: warning: ignoring return value of ‘setgid’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  637 |                 setgid(rgid);
+      |                 ^~~~~~~~~~~~
+libbb/appletlib.c:638:17: warning: ignoring return value of ‘setuid’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  638 |                 setuid(ruid);
+      |                 ^~~~~~~~~~~~
+  CC      coreutils/nl.o
+  LD      libpwdgrp/built-in.o
+  CC      libpwdgrp/pwd_grp.o
+  CC      coreutils/nohup.o
+  CC      libbb/auto_string.o
+  CC      libpwdgrp/uidgid_get.o
+  CC      coreutils/nproc.o
+libpwdgrp/uidgid_get.c: In function ‘get_uidgid’:
+libpwdgrp/uidgid_get.c:39:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   39 |         group = strchr(ug, ':');
+      |               ^
+  CC      libbb/bb_askpass.o
+  AR      libpwdgrp/lib.a
+  LD      loginutils/built-in.o
+  CC      coreutils/od.o
+  CC      loginutils/add-remove-shell.o
+  CC      libbb/bb_bswap_64.o
+In file included from coreutils/od.c:35:
+coreutils/od_bloaty.c: In function ‘parse_old_offset’:
+coreutils/od_bloaty.c:1175:11: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 1175 |         p = strchr(s, '.');
+      |           ^
+coreutils/od_bloaty.c: In function ‘od_main’:
+coreutils/od_bloaty.c:1239:19: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 1239 |                 p = strchr(doxn, str_A[0]);
+      |                   ^
+  CC      loginutils/addgroup.o
+  CC      libbb/bb_cat.o
+  CC      loginutils/adduser.o
+  CC      libbb/bb_do_delay.o
+  CC      coreutils/paste.o
+  CC      libbb/bb_getgroups.o
+  CC      loginutils/chpasswd.o
+  AR      editors/lib.a
+  LD      mailutils/built-in.o
+  CC      libbb/bb_getsockname.o
+  CC      mailutils/mail.o
+  CC      coreutils/printenv.o
+  CC      loginutils/cryptpw.o
+  CC      coreutils/printf.o
+  CC      libbb/bb_pwd.o
+  CC      loginutils/deluser.o
+  CC      mailutils/makemime.o
+coreutils/printf.c: In function ‘print_formatted’:
+mailutils/makemime.c: In function ‘makemime_main’:
+mailutils/makemime.c:204:17: warning: ignoring return value of ‘freopen’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  204 |                 freopen(opt_output, "w", stdout);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+coreutils/printf.c:357:43: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  357 |                                 char *p = strchr(format_chars, *f);
+      |                                           ^~~~~~
+  CC      mailutils/popmaildir.o
+  CC      loginutils/getty.o
+  CC      libbb/bb_qsort.o
+loginutils/getty.c: In function ‘open_tty’:
+loginutils/getty.c:224:17: warning: ignoring return value of ‘fchown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  224 |                 fchown(0, 0, 0);        /* 0:0 */
+      |                 ^~~~~~~~~~~~~~~
+  CC      mailutils/reformime.o
+  CC      coreutils/pwd.o
+  CC      libbb/bb_strtonum.o
+  CC      loginutils/login.o
+  CC      coreutils/readlink.o
+  CC      libbb/capability.o
+loginutils/login.c: In function ‘login_main’:
+loginutils/login.c:558:9: warning: ignoring return value of ‘fchown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  558 |         fchown(0, pw->pw_uid, pw->pw_gid);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      mailutils/sendmail.o
+  CC      loginutils/passwd.o
+  CC      coreutils/realpath.o
+  CC      libbb/change_identity.o
+  CC      coreutils/rm.o
+  AR      mailutils/lib.a
+  CC      loginutils/su.o
+  CC      libbb/chomp.o
+  CC      coreutils/rmdir.o
+  CC      libbb/common_bufsiz.o
+  LD      miscutils/built-in.o
+  CC      miscutils/adjtimex.o
+  CC      loginutils/sulogin.o
+  CC      coreutils/seq.o
+loginutils/sulogin.c: In function ‘sulogin_main’:
+loginutils/sulogin.c:55:17: warning: ignoring return value of ‘dup’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   55 |                 dup(xopen(argv[0], O_RDWR));
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+loginutils/sulogin.c:57:17: warning: ignoring return value of ‘dup’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   57 |                 dup(0);
+      |                 ^~~~~~
+  CC      libbb/compare_string_array.o
+  CC      loginutils/vlock.o
+  CC      miscutils/ascii.o
+  CC      coreutils/shred.o
+  CC      libbb/concat_path_file.o
+coreutils/shred.c: In function ‘shred_main’:
+coreutils/shred.c:104:25: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  104 |                         ftruncate(fd, 0);
+      |                         ^~~~~~~~~~~~~~~~
+  CC      miscutils/bc.o
+  AR      loginutils/lib.a
+  CC      coreutils/shuf.o
+  CC      libbb/concat_subpath_file.o
+  CC      libbb/const_hack.o
+miscutils/bc.c: In function ‘xc_program_printString’:
+miscutils/bc.c:5531:27: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 5531 |                         n = strchr(esc, c); // note: if c is NUL, n = \0 at end of esc
+      |                           ^
+  CC      coreutils/sleep.o
+  CC      libbb/copy_file.o
+  CC      miscutils/beep.o
+  CC      coreutils/sort.o
+  LD      modutils/built-in.o
+  CC      modutils/modinfo.o
+  CC      libbb/copyfd.o
+  CC      modutils/modprobe-small.o
+  CC      coreutils/split.o
+  CC      libbb/correct_password.o
+  CC      libbb/crc32.o
+  CC      coreutils/stat.o
+  CC      modutils/modutils.o
+  CC      libbb/default_error_retval.o
+modutils/modutils.c: In function ‘filename2modname’:
+modutils/modutils.c:118:1: warning: function may return address of local variable [-Wreturn-local-addr]
+  118 | }
+      | ^
+modutils/modutils.c:97:14: note: declared here
+   97 |         char local_modname[MODULE_NAME_LEN];
+      |              ^~~~~~~~~~~~~
+  CC      coreutils/stty.o
+  AR      modutils/lib.a
+  CC      miscutils/chat.o
+  CC      libbb/device_open.o
+  CC      libbb/dump.o
+  CC      coreutils/sum.o
+  LD      networking/built-in.o
+  CC      coreutils/sync.o
+  CC      networking/arp.o
+  CC      libbb/duration.o
+  CC      coreutils/tac.o
+In file included from networking/arp.c:43:
+networking/arp.c: In function ‘arp_show’:
+include/libbb.h:236:28: warning: ignoring return value of ‘fgets_unlocked’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  236 | # define fgets(s,n,stream) fgets_unlocked(s,n,stream)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+networking/arp.c:430:9: note: in expansion of macro ‘fgets’
+  430 |         fgets(line, sizeof(line), fp);
+      |         ^~~~~
+  CC      miscutils/conspy.o
+  CC      coreutils/tail.o
+  CC      networking/arping.o
+  CC      libbb/endofname.o
+  CC      libbb/executable.o
+  CC      miscutils/crond.o
+  CC      coreutils/tee.o
+  CC      networking/brctl.o
+  CC      libbb/fclose_nonstdin.o
+  CC      coreutils/test.o
+  CC      libbb/fflush_stdout_and_exit.o
+  CC      miscutils/crontab.o
+  CC      networking/dnsd.o
+miscutils/crontab.c: In function ‘crontab_main’:
+miscutils/crontab.c:161:17: warning: ignoring return value of ‘fchown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  161 |                 fchown(src_fd, pas->pw_uid, pas->pw_gid);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      libbb/fgets_str.o
+  CC      coreutils/test_ptr_hack.o
+  CC      coreutils/timeout.o
+  CC      miscutils/devmem.o
+  CC      libbb/find_mount_point.o
+  CC      networking/ether-wake.o
+  CC      coreutils/touch.o
+  CC      libbb/find_pid_by_name.o
+  CC      miscutils/fbsplash.o
+  CC      coreutils/tr.o
+  CC      networking/ftpd.o
+  CC      libbb/find_root_device.o
+  CC      coreutils/true.o
+networking/ftpd.c: In function ‘popen_ls’:
+networking/ftpd.c:718:17: warning: ignoring return value of ‘dup’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  718 |                 dup(STDOUT_FILENO); /* copy will become STDIN_FILENO */
+      |                 ^~~~~~~~~~~~~~~~~~
+  CC      miscutils/getfattr.o
+  CC      libbb/full_write.o
+  CC      coreutils/truncate.o
+  CC      libbb/get_console.o
+  CC      miscutils/hdparm.o
+  CC      networking/ftpgetput.o
+  CC      coreutils/tsort.o
+  CC      libbb/get_cpu_count.o
+  CC      networking/hostname.o
+  CC      coreutils/tty.o
+  CC      libbb/get_last_path_component.o
+  CC      networking/httpd.o
+libbb/get_last_path_component.c: In function ‘bb_get_last_path_component_nostrip’:
+libbb/get_last_path_component.c:27:23: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   27 |         char *slash = strrchr(path, '/');
+      |                       ^~~~~~~
+  CC      coreutils/uname.o
+networking/httpd.c: In function ‘send_file_and_exit’:
+networking/httpd.c:1789:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 1789 |         suffix = strrchr(url, '.');
+      |                ^
+  CC      libbb/get_line_from_file.o
+  CC      coreutils/uniq.o
+  CC      miscutils/hexedit.o
+  CC      libbb/get_shell_name.o
+  CC      coreutils/unlink.o
+  CC      libbb/get_volsize.o
+  CC      networking/ifconfig.o
+  CC      miscutils/i2c_tools.o
+  CC      libbb/getopt32.o
+  CC      coreutils/usleep.o
+networking/ifconfig.c: In function ‘ifconfig_main’:
+networking/ifconfig.c:438:64: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  438 |                                                         prefix = strchr(host, '/');
+      |                                                                ^
+  CC      coreutils/uudecode.o
+  CC      networking/ifenslave.o
+miscutils/i2c_tools.c: In function ‘list_i2c_busses_and_exit’:
+miscutils/i2c_tools.c:1152:46: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 236 [-Wformat-truncation=]
+ 1152 |                 snprintf(path, NAME_MAX, "%s/%s/name",
+      |                                              ^~
+In file included from /usr/include/stdio.h:974,
+                 from include/libbb.h:31,
+                 from miscutils/i2c_tools.c:66:
+In function ‘snprintf’,
+    inlined from ‘list_i2c_busses_and_exit’ at miscutils/i2c_tools.c:1152:3:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:68:10: note: ‘__builtin___snprintf_chk’ output between 25 and 280 bytes into a destination of size 255
+   68 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+miscutils/i2c_tools.c: In function ‘list_i2c_busses_and_exit’:
+miscutils/i2c_tools.c:1157:38: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 236 [-Wformat-truncation=]
+ 1157 |                                  "%s/%s/device/name",
+      |                                      ^~
+In function ‘snprintf’,
+    inlined from ‘list_i2c_busses_and_exit’ at miscutils/i2c_tools.c:1156:4:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:68:10: note: ‘__builtin___snprintf_chk’ output between 32 and 287 bytes into a destination of size 255
+   68 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+miscutils/i2c_tools.c: In function ‘list_i2c_busses_and_exit’:
+miscutils/i2c_tools.c:1165:38: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 236 [-Wformat-truncation=]
+ 1165 |                                  "%s/%s/device/name",
+      |                                      ^~
+In function ‘snprintf’,
+    inlined from ‘list_i2c_busses_and_exit’ at miscutils/i2c_tools.c:1164:4:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:68:10: note: ‘__builtin___snprintf_chk’ output between 32 and 287 bytes into a destination of size 255
+   68 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+miscutils/i2c_tools.c: In function ‘list_i2c_busses_and_exit’:
+miscutils/i2c_tools.c:1177:54: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 236 [-Wformat-truncation=]
+ 1177 |                                                  "%s/%s/device/%s/name",
+      |                                                      ^~
+In function ‘snprintf’,
+    inlined from ‘list_i2c_busses_and_exit’ at miscutils/i2c_tools.c:1176:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:68:10: note: ‘__builtin___snprintf_chk’ output between 33 and 543 bytes into a destination of size 255
+   68 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+  CC      libbb/getopt_allopts.o
+  CC      coreutils/uuencode.o
+  CC      networking/ifplugd.o
+  CC      libbb/getpty.o
+  CC      miscutils/less.o
+  CC      coreutils/wc.o
+  CC      libbb/hash_md5_sha.o
+  CC      coreutils/who.o
+  CC      networking/ifupdown.o
+networking/ifupdown.c: In function ‘parse’:
+networking/ifupdown.c:370:45: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  370 |                                 nextpercent = strchr(command, '%');
+      |                                             ^
+  CC      coreutils/whoami.o
+  AS      libbb/hash_sha1_hwaccel_x86-32.o
+  AS      libbb/hash_sha1_hwaccel_x86-64.o
+  CC      miscutils/lsscsi.o
+  AS      libbb/hash_sha1_x86-64.o
+  CC      coreutils/yes.o
+  AS      libbb/hash_sha256_hwaccel_x86-32.o
+  CC      miscutils/makedevs.o
+  AR      coreutils/lib.a
+  AS      libbb/hash_sha256_hwaccel_x86-64.o
+  CC      networking/inetd.o
+  CC      libbb/herror_msg.o
+  LD      networking/libiproute/built-in.o
+  CC      networking/libiproute/ip_parse_common_args.o
+  CC      miscutils/man.o
+  CC      networking/libiproute/ipaddress.o
+  CC      libbb/human_readable.o
+miscutils/man.c: In function ‘run_pipe’:
+miscutils/man.c:160:9: warning: ignoring return value of ‘system’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  160 |         system(cmd);
+      |         ^~~~~~~~~~~
+  CC      networking/interface.o
+  CC      libbb/in_ether.o
+  CC      miscutils/microcom.o
+In file included from networking/interface.c:33:
+networking/interface.c: In function ‘if_readlist_proc’:
+include/libbb.h:236:28: warning: ignoring return value of ‘fgets_unlocked’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  236 | # define fgets(s,n,stream) fgets_unlocked(s,n,stream)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+networking/interface.c:554:9: note: in expansion of macro ‘fgets’
+  554 |         fgets(buf, sizeof buf, fh);     /* eat line */
+      |         ^~~~~
+include/libbb.h:236:28: warning: ignoring return value of ‘fgets_unlocked’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  236 | # define fgets(s,n,stream) fgets_unlocked(s,n,stream)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+networking/interface.c:555:9: note: in expansion of macro ‘fgets’
+  555 |         fgets(buf, sizeof buf, fh);
+      |         ^~~~~
+  CC      networking/libiproute/iplink.o
+miscutils/microcom.c: In function ‘microcom_main’:
+miscutils/microcom.c:160:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  160 |                         write(sfd, &c, 1);
+      |                         ^~~~~~~~~~~~~~~~~
+  CC      libbb/inet_cksum.o
+  CC      miscutils/mt.o
+  CC      networking/ip.o
+  CC      libbb/inet_common.o
+  CC      miscutils/nandwrite.o
+  CC      libbb/inode_hash.o
+  CC      networking/ipcalc.o
+  CC      networking/libiproute/ipneigh.o
+  CC      libbb/isdirectory.o
+  CC      networking/isrv.o
+  CC      miscutils/partprobe.o
+  CC      libbb/isqrt.o
+  CC      networking/libiproute/iproute.o
+  CC      miscutils/raidautorun.o
+  CC      libbb/iterate_on_dir.o
+  CC      networking/isrv_identd.o
+  CC      miscutils/readahead.o
+  CC      libbb/kernel_version.o
+  CC      networking/nameif.o
+  CC      miscutils/runlevel.o
+  CC      libbb/last_char_is.o
+  CC      networking/libiproute/iprule.o
+  CC      networking/nbd-client.o
+  CC      miscutils/rx.o
+networking/nbd-client.c: In function ‘nbdclient_main’:
+networking/nbd-client.c:263:35: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  263 |                         char *s = strrchr(device, '/');
+      |                                   ^~~~~~~
+networking/nbd-client.c:281:25: warning: ignoring return value of ‘daemon’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  281 |                         daemon(0, 0);
+      |                         ^~~~~~~~~~~~
+  CC      libbb/lineedit.o
+  CC      networking/nc.o
+  CC      networking/libiproute/iptunnel.o
+  CC      miscutils/seedrng.o
+In file included from networking/libiproute/ip_common.h:5,
+                 from networking/libiproute/iptunnel.c:64:
+networking/libiproute/iptunnel.c: In function ‘do_tunnels_list’:
+include/libbb.h:236:28: warning: ignoring return value of ‘fgets_unlocked’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  236 | # define fgets(s,n,stream) fgets_unlocked(s,n,stream)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+networking/libiproute/iptunnel.c:477:9: note: in expansion of macro ‘fgets’
+  477 |         fgets(buf, sizeof(buf), fp);
+      |         ^~~~~
+include/libbb.h:236:28: warning: ignoring return value of ‘fgets_unlocked’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  236 | # define fgets(s,n,stream) fgets_unlocked(s,n,stream)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+networking/libiproute/iptunnel.c:478:9: note: in expansion of macro ‘fgets’
+  478 |         fgets(buf, sizeof(buf), fp);
+      |         ^~~~~
+  CC      networking/libiproute/libnetlink.o
+  CC      networking/netstat.o
+  CC      miscutils/setfattr.o
+  CC      miscutils/setserial.o
+  CC      libbb/lineedit_ptr_hack.o
+  CC      networking/nslookup.o
+  CC      networking/libiproute/ll_addr.o
+  CC      libbb/llist.o
+networking/nslookup.c: In function ‘send_queries’:
+networking/nslookup.c:999:33: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  999 |                                 write(pfd.fd, G.query[qn].query, G.query[qn].qlen);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      networking/libiproute/ll_map.o
+  CC      miscutils/strings.o
+  CC      libbb/logenv.o
+  CC      miscutils/time.o
+  CC      libbb/login.o
+  CC      networking/ntpd.o
+  CC      networking/libiproute/ll_proto.o
+  CC      libbb/loop.o
+  CC      networking/libiproute/ll_types.o
+  CC      miscutils/tree.o
+  CC      libbb/make_directory.o
+  CC      miscutils/ts.o
+  CC      libbb/makedev.o
+  CC      networking/libiproute/rt_names.o
+  CC      miscutils/ttysize.o
+  CC      networking/parse_pasv_epsv.o
+  CC      libbb/match_fstype.o
+  CC      networking/libiproute/rtm_map.o
+  CC      miscutils/ubi_tools.o
+  CC      libbb/messages.o
+  CC      networking/ping.o
+  CC      networking/libiproute/utils.o
+  CC      libbb/missing_syscalls.o
+  CC      miscutils/ubirename.o
+  CC      libbb/mode_string.o
+  AR      networking/libiproute/lib.a
+  CC      miscutils/volname.o
+  LD      networking/udhcp/built-in.o
+  CC      networking/pscan.o
+  CC      networking/udhcp/arpping.o
+  CC      libbb/nuke_str.o
+  CC      miscutils/watchdog.o
+  CC      networking/route.o
+  CC      libbb/obscure.o
+  CC      networking/udhcp/common.o
+networking/route.c: In function ‘INET_setroute’:
+networking/route.c:186:24: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  186 |                 prefix = strchr(target, '/');
+      |                        ^
+networking/route.c: In function ‘INET6_setroute’:
+networking/route.c:364:28: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  364 |                         cp = strchr(target, '/'); /* Yes... const to non is ok. */
+      |                            ^
+miscutils/watchdog.c: In function ‘watchdog_main’:
+miscutils/watchdog.c:161:17: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  161 |                 write(3, "", 1); /* write zero byte */
+      |                 ^~~~~~~~~~~~~~~
+miscutils/watchdog.c: In function ‘shutdown_watchdog’:
+miscutils/watchdog.c:71:9: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   71 |         write(3, &V, 1);  /* Magic, see watchdog-api.txt in kernel */
+      |         ^~~~~~~~~~~~~~~
+  CC      libbb/parse_config.o
+  AR      miscutils/lib.a
+  CC      networking/udhcp/d6_dhcpc.o
+  CC      networking/slattach.o
+  CC      libbb/parse_mode.o
+networking/slattach.c: In function ‘slattach_main’:
+networking/slattach.c:225:17: warning: ignoring return value of ‘system’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  225 |                 system(extcmd);
+      |                 ^~~~~~~~~~~~~~
+  CC      libbb/percent_decode.o
+  CC      networking/udhcp/d6_packet.o
+  CC      networking/ssl_client.o
+  CC      libbb/perror_msg.o
+  CC      networking/udhcp/d6_socket.o
+  CC      networking/tcpudp.o
+  LD      printutils/built-in.o
+  CC      printutils/lpd.o
+  CC      libbb/perror_nomsg.o
+networking/udhcp/d6_socket.c: In function ‘d6_listen_socket’:
+networking/udhcp/d6_socket.c:119:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  119 |         colon = strrchr(inf, ':');
+      |               ^
+  CC      printutils/lpr.o
+  CC      networking/udhcp/dhcpc.o
+  CC      networking/tcpudp_perhost.o
+printutils/lpr.c: In function ‘lpqr_main’:
+printutils/lpr.c:125:27: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  125 |                 char *s = strchr(queue, '@');
+      |                           ^~~~~~
+printutils/lpr.c:272:17: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  272 |                 write(fd, "", 1); // send ACK
+      |                 ^~~~~~~~~~~~~~~~
+  CC      libbb/perror_nomsg_and_die.o
+  AR      printutils/lib.a
+  CC      networking/telnet.o
+  CC      libbb/pidfile.o
+  LD      procps/built-in.o
+  CC      procps/free.o
+  CC      libbb/platform.o
+  CC      libbb/popcnt.o
+  CC      procps/fuser.o
+  CC      networking/telnetd.o
+  CC      networking/udhcp/dhcpd.o
+  CC      libbb/print_flags.o
+  CC      procps/iostat.o
+  CC      networking/tftp.o
+  CC      libbb/print_numbered_lines.o
+networking/tftp.c: In function ‘tftpd_main’:
+networking/tftp.c:886:15: warning: ‘local_file’ is used uninitialized [-Wuninitialized]
+  886 |         char *local_file = local_file;
+      |               ^~~~~~~~~~
+networking/tftp.c:886:15: note: ‘local_file’ was declared here
+  886 |         char *local_file = local_file;
+      |               ^~~~~~~~~~
+  CC      procps/kill.o
+  CC      libbb/printable.o
+  CC      networking/udhcp/dhcprelay.o
+  CC      networking/tls.o
+  CC      libbb/printable_string.o
+  CC      procps/lsof.o
+  CC      networking/udhcp/domain_codec.o
+  CC      libbb/process_escape_sequence.o
+  CC      procps/mpstat.o
+  CC      networking/udhcp/dumpleases.o
+  CC      libbb/procps.o
+  CC      networking/tls_aes.o
+  CC      networking/udhcp/packet.o
+  CC      procps/nmeter.o
+  CC      libbb/progress.o
+  CC      networking/tls_aesgcm.o
+  CC      networking/udhcp/signalpipe.o
+procps/nmeter.c: In function ‘nmeter_main’:
+procps/nmeter.c:931:27: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  931 |                         p = strchr(options, cur[0]);
+      |                           ^
+procps/nmeter.c:946:27: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  946 |                         p = strchr(options, cur[0]);
+      |                           ^
+  CC      libbb/ptr_to_globals.o
+  CC      networking/tls_fe.o
+  CC      libbb/pw_encrypt.o
+  CC      networking/udhcp/socket.o
+networking/udhcp/socket.c: In function ‘udhcp_listen_socket’:
+networking/udhcp/socket.c:93:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   93 |         colon = strrchr(inf, ':');
+      |               ^
+  CC      networking/tls_pstm.o
+  AR      networking/udhcp/lib.a
+  CC      procps/pgrep.o
+  LD      runit/built-in.o
+  CC      libbb/read.o
+  CC      runit/chpst.o
+  CC      procps/pidof.o
+  CC      libbb/read_key.o
+  CC      runit/runsv.o
+  CC      procps/pmap.o
+  CC      networking/tls_pstm_montgomery_reduce.o
+runit/runsv.c: In function ‘s_chld_term’:
+runit/runsv.c:161:9: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  161 |         write(selfpipe.wr, "", 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+runit/runsv.c: In function ‘update_status’:
+runit/runsv.c:203:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  203 |                         write(fd, spid, size);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+runit/runsv.c:244:17: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  244 |                 write(fd, stat_buf, p - stat_buf);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      libbb/read_printf.o
+  CC      procps/powertop.o
+  CC      networking/tls_pstm_mul_comba.o
+  CC      runit/runsvdir.o
+  CC      libbb/recursive_action.o
+procps/powertop.c: In function ‘is_hpet_irq’:
+procps/powertop.c:272:11: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  272 |         p = strstr(name, "hpet");
+      |           ^
+procps/powertop.c: In function ‘process_timer_stats’:
+procps/powertop.c:432:27: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  432 |                         p = strchr(count, ',');
+      |                           ^
+  CC      networking/tls_pstm_sqr_comba.o
+procps/powertop.c: In function ‘read_cstate_counts’:
+procps/powertop.c:181:34: warning: ‘%s’ directive writing up to 255 bytes into a region of size 171 [-Wformat-overflow=]
+  181 |                 sprintf(buf, "%s/%s/power", "/proc/acpi/processor", d->d_name);
+      |                                  ^~
+In file included from /usr/include/stdio.h:974,
+                 from include/libbb.h:31,
+                 from procps/powertop.c:32:
+In function ‘sprintf’,
+    inlined from ‘read_cstate_counts’ at procps/powertop.c:181:3:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:10: note: ‘__builtin___sprintf_chk’ output between 28 and 283 bytes into a destination of size 192
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+  CC      libbb/remove_file.o
+  CC      runit/sv.o
+  CC      networking/tls_rsa.o
+  CC      libbb/replace.o
+  CC      procps/ps.o
+libbb/replace.c: In function ‘xmalloc_substitute_string’:
+libbb/replace.c:39:21: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   39 |         while ((end = strstr(src, sub)) != NULL) {
+      |                     ^
+  CC      networking/tls_sp_c32.o
+  CC      libbb/rtc.o
+  CC      runit/svlogd.o
+  CC      libbb/run_shell.o
+  CC      networking/traceroute.o
+  CC      procps/pstree.o
+  CC      libbb/safe_gethostname.o
+  CC      libbb/safe_poll.o
+  CC      procps/pwdx.o
+  AR      runit/lib.a
+  LD      selinux/built-in.o
+  AR      selinux/lib.a
+  CC      procps/smemcap.o
+  CC      networking/tunctl.o
+  CC      libbb/safe_strncpy.o
+  CC      procps/sysctl.o
+  CC      libbb/safe_write.o
+  LD      shell/built-in.o
+  CC      networking/vconfig.o
+  CC      shell/ash.o
+  CC      procps/top.o
+  CC      libbb/securetty.o
+shell/ash.c: In function ‘find_builtin’:
+shell/ash.c:10291:12: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+10291 |         bp = bsearch(
+      |            ^
+shell/ash.c: In function ‘decode_dollar_squote’:
+shell/ash.c:12421:11: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+12421 |         p = strchr(C_escapes, c);
+      |           ^
+shell/ash.c: In function ‘preadfd’:
+shell/ash.c:10872:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+10872 |                         write(STDOUT_FILENO, "^C\n", 3);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+shell/ash.c:10876:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+10876 |                         write(STDOUT_FILENO, "^C\n", 3);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+shell/ash.c:10898:41: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+10898 |                                         write(STDOUT_FILENO, "\n", 1);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      networking/wget.o
+networking/wget.c: In function ‘retrieve_file_data’:
+networking/wget.c:1085:33: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+ 1085 |                                 ftruncate(G.output_fd, pos);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      libbb/setup_environment.o
+  CC      procps/uptime.o
+  CC      libbb/signals.o
+  CC      procps/watch.o
+  CC      networking/whois.o
+procps/watch.c: In function ‘watch_main’:
+procps/watch.c:115:17: warning: ignoring return value of ‘system’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  115 |                 system(cmd);
+      |                 ^~~~~~~~~~~
+  CC      libbb/simplify_path.o
+  AR      procps/lib.a
+  LD      sysklogd/built-in.o
+  CC      networking/zcip.o
+  CC      sysklogd/klogd.o
+  CC      libbb/single_argv.o
+  AR      networking/lib.a
+  CC      sysklogd/logread.o
+  CC      libbb/skip_whitespace.o
+  CC      shell/ash_ptr_hack.o
+  CC      sysklogd/syslogd_and_logger.o
+  LD      util-linux/built-in.o
+  CC      util-linux/acpid.o
+  CC      libbb/speed_table.o
+  CC      libbb/str_tolower.o
+  CC      util-linux/blkdiscard.o
+  CC      libbb/strrstr.o
+  AR      sysklogd/lib.a
+  CC      util-linux/blkid.o
+libbb/strrstr.c: In function ‘strrstr’:
+libbb/strrstr.c:22:27: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   22 |                 char *p = strstr(haystack, needle);
+      |                           ^~~~~~
+  CC      util-linux/blockdev.o
+  CC      libbb/sysconf.o
+  LD      util-linux/volume_id/built-in.o
+  CC      util-linux/volume_id/bcache.o
+  CC      util-linux/cal.o
+  CC      libbb/time.o
+  CC      util-linux/volume_id/btrfs.o
+  CC      util-linux/chrt.o
+  CC      util-linux/volume_id/cramfs.o
+  CC      libbb/trim.o
+  CC      util-linux/dmesg.o
+  CC      util-linux/eject.o
+  CC      util-linux/volume_id/erofs.o
+  CC      libbb/u_signal_names.o
+  CC      shell/cttyhack.o
+  CC      util-linux/volume_id/exfat.o
+  CC      libbb/ubi.o
+  CC      util-linux/fallocate.o
+  CC      shell/hush.o
+  CC      libbb/udp_io.o
+  CC      util-linux/volume_id/ext.o
+  CC      util-linux/fatattr.o
+shell/hush.c: In function ‘o_addqchr’:
+shell/hush.c:3115:23: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 3115 |         char *found = strchr("*?[-\\" MAYBE_BRACES, ch);
+      |                       ^~~~~~
+shell/hush.c: In function ‘expand_one_var’:
+shell/hush.c:6650:21: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 6650 |         exp_saveptr = arg[1] ? strchr(VAR_ENCODED_SUBST_OPS, arg[1]) : NULL;
+      |                     ^
+  CC      util-linux/volume_id/f2fs.o
+  CC      util-linux/fbset.o
+shell/hush.c: In function ‘get_user_input’:
+shell/hush.c:2716:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+ 2716 |                         write(STDOUT_FILENO, "^C\n", 3);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+shell/hush.c:2727:25: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+ 2727 |                         write(STDOUT_FILENO, "\n", 1);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+shell/hush.c: In function ‘expand_one_var’:
+shell/hush.c:6642:15: warning: ‘exp_word’ is used uninitialized [-Wuninitialized]
+ 6642 |         char *exp_word = exp_word; /* for compiler */
+      |               ^~~~~~~~
+shell/hush.c:6642:15: note: ‘exp_word’ was declared here
+ 6642 |         char *exp_word = exp_word; /* for compiler */
+      |               ^~~~~~~~
+  CC      libbb/unicode.o
+  CC      util-linux/volume_id/fat.o
+  CC      util-linux/fdformat.o
+  CC      libbb/update_passwd.o
+  CC      util-linux/volume_id/get_devname.o
+libbb/update_passwd.c: In function ‘update_passwd’:
+libbb/update_passwd.c:153:17: warning: ignoring return value of ‘fchown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  153 |                 fchown(new_fd, sb.st_uid, sb.st_gid);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      libbb/utmp.o
+  CC      util-linux/fdisk.o
+  CC      util-linux/volume_id/hfs.o
+  CC      libbb/uuencode.o
+  CC      util-linux/volume_id/iso9660.o
+  CC      util-linux/volume_id/jfs.o
+  CC      libbb/verror_msg.o
+  CC      util-linux/volume_id/lfs.o
+  CC      libbb/vfork_daemon_rexec.o
+  CC      util-linux/volume_id/linux_raid.o
+  CC      libbb/warn_ignoring_args.o
+  CC      util-linux/findfs.o
+  CC      util-linux/volume_id/linux_swap.o
+  CC      libbb/wfopen.o
+  CC      util-linux/flock.o
+  CC      libbb/wfopen_input.o
+  CC      util-linux/volume_id/luks.o
+  CC      util-linux/volume_id/minix.o
+  CC      util-linux/freeramdisk.o
+  CC      libbb/write.o
+  CC      util-linux/volume_id/nilfs.o
+  CC      util-linux/fsck_minix.o
+  CC      libbb/xatonum.o
+  CC      util-linux/volume_id/ntfs.o
+  CC      shell/match.o
+  CC      libbb/xconnect.o
+  CC      util-linux/volume_id/ocfs2.o
+  CC      shell/math.o
+  CC      util-linux/volume_id/reiserfs.o
+  CC      util-linux/fsfreeze.o
+  CC      libbb/xfunc_die.o
+  CC      util-linux/volume_id/romfs.o
+  CC      util-linux/fstrim.o
+  CC      shell/random.o
+  CC      libbb/xfuncs.o
+  CC      util-linux/getopt.o
+  CC      shell/shell_common.o
+  CC      util-linux/volume_id/squashfs.o
+  CC      util-linux/volume_id/sysv.o
+  CC      util-linux/hexdump.o
+  CC      libbb/xfuncs_printf.o
+  AR      shell/lib.a
+  CC      libbb/xgetcwd.o
+libbb/xfuncs_printf.c: In function ‘bb_unsetenv’:
+libbb/xfuncs_printf.c:366:12: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  366 |         tp = strchr(var, '=');
+      |            ^
+  CC      util-linux/hexdump_xxd.o
+  CC      util-linux/volume_id/ubifs.o
+  CC      libbb/xgethostbyname.o
+  CC      util-linux/volume_id/udf.o
+  CC      util-linux/hwclock.o
+  CC      libbb/xreadlink.o
+  CC      util-linux/volume_id/util.o
+  CC      util-linux/volume_id/volume_id.o
+  CC      libbb/xrealloc_vector.o
+  CC      util-linux/ionice.o
+  CC      util-linux/volume_id/xfs.o
+  CC      libbb/xregcomp.o
+  AR      util-linux/volume_id/lib.a
+  CC      util-linux/ipcrm.o
+  CC      util-linux/ipcs.o
+  CC      util-linux/last_fancy.o
+  AR      libbb/lib.a
+  CC      util-linux/losetup.o
+  CC      util-linux/lspci.o
+  CC      util-linux/lsusb.o
+  CC      util-linux/mdev.o
+  CC      util-linux/mesg.o
+  CC      util-linux/mkfs_ext2.o
+util-linux/mdev.c: In function ‘make_device’:
+util-linux/mdev.c:787:33: warning: ignoring return value of ‘chown’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  787 |                                 chown(node_name, rule->ugid.uid, rule->ugid.gid);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+util-linux/mdev.c:790:33: warning: ignoring return value of ‘symlink’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  790 |                                 symlink(node_name, "root");
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+util-linux/mdev.c:797:41: warning: ignoring return value of ‘symlink’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  797 |                                         symlink(node_name, device_name);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      util-linux/mkfs_minix.o
+  CC      util-linux/mkfs_vfat.o
+util-linux/mkfs_minix.c: In function ‘get_list_blocks’:
+util-linux/mkfs_minix.c:532:17: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  532 |                 fscanf(listfile, "%lu\n", &blockno);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      util-linux/mkswap.o
+  CC      util-linux/more.o
+  CC      util-linux/mount.o
+  CC      util-linux/mountpoint.o
+  CC      util-linux/nsenter.o
+  CC      util-linux/pivot_root.o
+  CC      util-linux/rdate.o
+  CC      util-linux/rdev.o
+  CC      util-linux/readprofile.o
+  CC      util-linux/renice.o
+  CC      util-linux/rev.o
+  CC      util-linux/rtcwake.o
+  CC      util-linux/script.o
+  CC      util-linux/scriptreplay.o
+  CC      util-linux/setarch.o
+  CC      util-linux/setpriv.o
+  CC      util-linux/setsid.o
+  CC      util-linux/swaponoff.o
+  CC      util-linux/switch_root.o
+  CC      util-linux/taskset.o
+  CC      util-linux/uevent.o
+  CC      util-linux/umount.o
+  CC      util-linux/unshare.o
+  CC      util-linux/wall.o
+util-linux/unshare.c: In function ‘unshare_main’:
+util-linux/unshare.c:295:25: warning: ignoring return value of ‘read’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  295 |                         read(fdp.rd, ns_ctx_list, 1); /* ...using bogus buffer */
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  AR      util-linux/lib.a
+  LINK    busybox_unstripped
+Static linking against glibc, can't use --gc-sections
+Trying libraries: crypt m resolv rt
+ Library crypt is not needed, excluding it
+ Library m is needed, can't exclude it (yet)
+ Library resolv is needed, can't exclude it (yet)
+ Library rt is not needed, excluding it
+ Library m is needed, can't exclude it (yet)
+ Library resolv is needed, can't exclude it (yet)
+Final link with: m resolv
